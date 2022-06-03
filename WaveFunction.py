@@ -57,7 +57,12 @@ class WaveFunction:
         )
 
     def solve(
-        self, save_data: bool = True, load_data: Union[bool, str] = False
+        self,
+        N: int = N,
+        tau: float = tau,
+        P: int = P,
+        save_data: bool = True,
+        load_data: Union[bool, str] = False,
     ) -> None:
         """
         Solve the Schrodinger Equation using the Crank-Nicolson method. Append the
@@ -79,6 +84,8 @@ class WaveFunction:
         Rmatrix = IMatrix - 1j * tau / (2 * hbar) * hamiltonian
 
         ##################### MAIN LOOP #####################
+
+        T = N * tau
 
         if not load_data:
 
@@ -104,7 +111,7 @@ class WaveFunction:
         if load_data:
             npzfile = np.load(f"{load_data}")
             self.psi_list = npzfile["psi_list"]
-            self.time_list = npzfile["time_List"]
+            self.time_list = npzfile["time_list"]
             self.expected_pos_list = npzfile["expected_post_list"]
 
         if save_data:
@@ -114,6 +121,15 @@ class WaveFunction:
                 time_list=self.time_list,
                 expected_post_list=self.expected_pos_list,
             )
+
+    def load_data(self, data: str) -> None:
+        """
+        Load the npz data file to this Wavefunction.
+        """
+        npzfile = np.load(data)
+        self.psi_list = npzfile["psi_list"]
+        self.time_list = npzfile["time_list"]
+        self.expected_pos_list = npzfile["expected_post_list"]
 
     @staticmethod
     def get_expected_pos(psi: list) -> float:
