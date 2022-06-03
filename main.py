@@ -5,8 +5,8 @@ from TDSE_plots import *
 # potentials = ["Infinite Sqaure Well", "Harmonic Potential", "Double Well"]
 
 w1 = WaveFunction(L / 5, potential="Infinite Sqaure Well")
-w2 = WaveFunction(L/5, potential="Harmonic Potential")
-w3 = WaveFunction(L/3, potential="Double Well")
+w2 = WaveFunction(L / 5, potential="Harmonic Potential")
+w3 = WaveFunction(L / 3, potential="Double Well")
 
 w1.load_data("data/TDSE_data_Infinite Sqaure Well.npz")
 w2.load_data("data/TDSE_data_Harmonic Potential.npz")
