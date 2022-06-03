@@ -35,10 +35,10 @@ def plot_real_psi(w: WaveFunction, save_fig=False) -> None:
 
     plt.tight_layout()
 
-    plt.show()
-
     if save_fig:
         plt.savefig(f"Real_Psi_{w.potential}.png")
+
+    plt.show()
 
 
 def plot_expected_pos(w: WaveFunction, save_fig=False) -> None:
@@ -53,10 +53,10 @@ def plot_expected_pos(w: WaveFunction, save_fig=False) -> None:
     plt.ylabel("$<X> / L $")
     plt.xlabel("Time (s)")
 
-    plt.show()
-
     if save_fig:
         plt.savefig(f"Expected_Pos_{w.potential}.png")
+
+    plt.show()
 
 
 def plot_animated_pdf(w: WaveFunction) -> None:
