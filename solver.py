@@ -11,4 +11,3 @@ w3 = WaveFunction(L / 3, potential="Double Well")
 w1.solve(N=3000, save_data=True)
 w2.solve(N=4000, save_data=True)
 w3.solve(N=6000, save_data=True)
-
